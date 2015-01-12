@@ -286,7 +286,6 @@ long CGSSAPIPluginDLL::InitContext(SAuthPluginData* info)
 		}
 		
 		// Add IP address
-		size_t start_caps = ::strlen(actual_principal);
 		if (*mServer)
 			::strcat(actual_principal, mServer);
 		else
@@ -377,25 +376,23 @@ long CGSSAPIPluginDLL::InitContext(SAuthPluginData* info)
 void CGSSAPIPluginDLL::CleanContext()
 {
 	// Clean up
-	OM_uint32 maj_stat;
 	OM_uint32 min_stat;
 
 	if (mGSSAPI_Context != GSS_C_NO_CONTEXT)
-		maj_stat = ::gss_delete_sec_context(&min_stat, &mGSSAPI_Context, GSS_C_NO_BUFFER);
+		::gss_delete_sec_context(&min_stat, &mGSSAPI_Context, GSS_C_NO_BUFFER);
 	mGSSAPI_Context = GSS_C_NO_CONTEXT;
 
 	if (mGSSAPI_ServerName != GSS_C_NO_NAME)
-		maj_stat = ::gss_release_name(&min_stat, &mGSSAPI_ServerName);
+		::gss_release_name(&min_stat, &mGSSAPI_ServerName);
 	mGSSAPI_ServerName = GSS_C_NO_NAME;
 }
 
 void CGSSAPIPluginDLL::DisplayError(SAuthPluginData* info, OM_uint32 maj_status, OM_uint32 min_status, const char* file, int line)
 {
-	OM_uint32 maj_stat;
 	OM_uint32 min_stat;
 	OM_uint32 mctx = 0;
 	gss_buffer_desc string_token;
-	maj_stat = ::gss_display_status(&min_stat, min_status, GSS_C_MECH_CODE,
+	::gss_display_status(&min_stat, min_status, GSS_C_MECH_CODE,
 										GSS_C_NULL_OID, &mctx, &string_token);
 
 	const char* err_title = "GSSAPI Plugin Error: ";
@@ -415,7 +412,7 @@ void CGSSAPIPluginDLL::DisplayError(SAuthPluginData* info, OM_uint32 maj_status,
 	else
 		::strcpy(info->data, err_title);
 
-	maj_stat = ::gss_release_buffer(&min_stat, &string_token);
+	::gss_release_buffer(&min_stat, &string_token);
 
   	mState = eError;
 }

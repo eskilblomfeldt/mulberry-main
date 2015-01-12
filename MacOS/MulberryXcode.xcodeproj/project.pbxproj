@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -95,6 +95,9 @@
 		AF3754720AE2D15900C56E20 /* Mulberry.icns in Resources */ = {isa = PBXBuildFile; fileRef = AF37546B0AE2D15900C56E20 /* Mulberry.icns */; };
 		AF3754730AE2D15900C56E20 /* Pref.icns in Resources */ = {isa = PBXBuildFile; fileRef = AF37546C0AE2D15900C56E20 /* Pref.icns */; };
 		AF3754740AE2D15900C56E20 /* shlb.icns in Resources */ = {isa = PBXBuildFile; fileRef = AF37546D0AE2D15900C56E20 /* shlb.icns */; };
+		AF3D685314783A5700598FB3 /* CAddressFieldMultiLine.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF3D685114783A5700598FB3 /* CAddressFieldMultiLine.cp */; };
+		AF3D68561478749700598FB3 /* CAddressFieldSubContainer.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF3D68541478749600598FB3 /* CAddressFieldSubContainer.cp */; };
+		AF4F945B1462F0A30078DC56 /* CAddressFieldBase.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4F94591462F0A30078DC56 /* CAddressFieldBase.cp */; };
 		AF52ED890AE2F8F600A75C72 /* LTableSelState.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF52ED870AE2F8F600A75C72 /* LTableSelState.cp */; };
 		AF52F1D80AE3367D00A75C72 /* 0bb21872.0 in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF52EF1D0AE32EB200A75C72 /* 0bb21872.0 */; };
 		AF52F1D90AE3367D00A75C72 /* 0c364b2d.0 in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF52EF1E0AE32EB200A75C72 /* 0c364b2d.0 */; };
@@ -175,6 +178,7 @@
 		AFB052F110AFAB180077F8B8 /* CPasswordManagerKeychain.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFB052EF10AFAB180077F8B8 /* CPasswordManagerKeychain.cp */; };
 		AFBE2AB70D2F30DB002132BE /* CWebDAVPrefsClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFBE2AB60D2F30DB002132BE /* CWebDAVPrefsClient.cpp */; };
 		AFBE2ABA0D2F34A4002132BE /* COptionsAccount.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBE2AB80D2F34A4002132BE /* COptionsAccount.cp */; };
+		AFC64A2A147C34A6001777F1 /* CEditAddressAdvancedDialog.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFC64A28147C34A4001777F1 /* CEditAddressAdvancedDialog.cp */; };
 		AFC7981B0CCADCAF00E62F0F /* CPasswordManager.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFC7981A0CCADCAF00E62F0F /* CPasswordManager.cp */; };
 		AFCDD2D30AE1647A00E30447 /* os_dep.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFCDD2D20AE1647A00E30447 /* os_dep.cp */; };
 		AFCDD6780AE164F300E30447 /* LMutexSemaphore.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFCDD36B0AE164EE00E30447 /* LMutexSemaphore.cp */; };
@@ -1919,6 +1923,13 @@
 			remoteGlobalIDString = AF419C850AEA6B9E00E19592;
 			remoteInfo = "SSL MachO";
 		};
+		AF7C331414A3C2CC00C70C9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF419E9F0AEA750800E19592 /* PluginLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AF41CB68136BB4B7004178E5;
+			remoteInfo = "PluginLibrary MachO";
+		};
 		AFC79A500CCBEB4C00E62F0F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AFC79A4C0CCBEB4C00E62F0F /* CocoaSpeller.xcodeproj */;
@@ -2710,6 +2721,10 @@
 		AF37546B0AE2D15900C56E20 /* Mulberry.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Mulberry.icns; path = Resources/Mulberry.icns; sourceTree = SOURCE_ROOT; };
 		AF37546C0AE2D15900C56E20 /* Pref.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Pref.icns; path = Resources/Pref.icns; sourceTree = SOURCE_ROOT; };
 		AF37546D0AE2D15900C56E20 /* shlb.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = shlb.icns; path = Resources/shlb.icns; sourceTree = SOURCE_ROOT; };
+		AF3D685114783A5700598FB3 /* CAddressFieldMultiLine.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CAddressFieldMultiLine.cp; path = Sources/Application/Address_Book/CAddressFieldMultiLine.cp; sourceTree = "<group>"; };
+		AF3D685214783A5700598FB3 /* CAddressFieldMultiLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAddressFieldMultiLine.h; path = Sources/Application/Address_Book/CAddressFieldMultiLine.h; sourceTree = "<group>"; };
+		AF3D68541478749600598FB3 /* CAddressFieldSubContainer.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CAddressFieldSubContainer.cp; path = Sources/Application/Address_Book/CAddressFieldSubContainer.cp; sourceTree = "<group>"; };
+		AF3D68551478749600598FB3 /* CAddressFieldSubContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAddressFieldSubContainer.h; path = Sources/Application/Address_Book/CAddressFieldSubContainer.h; sourceTree = "<group>"; };
 		AF419E460AEA72AE00E19592 /* CommunicatorAdbkIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CommunicatorAdbkIO.xcodeproj; path = "../Plug-ins/CommunicatorAdbkIO/CommunicatorAdbkIO.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AF419E4F0AEA72BB00E19592 /* Eudora4AdbkIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Eudora4AdbkIO.xcodeproj; path = "../Plug-ins/Eudora4AdbkIO/Eudora4AdbkIO.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AF419E580AEA72C900E19592 /* EudoraAdbkIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EudoraAdbkIO.xcodeproj; path = "../Plug-ins/EudoraAdbkIO/EudoraAdbkIO.xcodeproj"; sourceTree = SOURCE_ROOT; };
@@ -2725,6 +2740,8 @@
 		AF419EC00AEA753B00E19592 /* SMIME.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SMIME.xcodeproj; path = "../Plug-ins/SMIME/SMIME.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AF419EC60AEA753B00E19592 /* SSL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSL.xcodeproj; path = "../Plug-ins/SSL/SSL.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AF419EC90AEA753B00E19592 /* vCardAdbkIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = vCardAdbkIO.xcodeproj; path = "../Plug-ins/vCardAdbkIO/vCardAdbkIO.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		AF4F94591462F0A30078DC56 /* CAddressFieldBase.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CAddressFieldBase.cp; path = Sources/Application/Address_Book/CAddressFieldBase.cp; sourceTree = "<group>"; };
+		AF4F945A1462F0A30078DC56 /* CAddressFieldBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAddressFieldBase.h; path = Sources/Application/Address_Book/CAddressFieldBase.h; sourceTree = "<group>"; };
 		AF52ED870AE2F8F600A75C72 /* LTableSelState.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = LTableSelState.cp; sourceTree = "<group>"; };
 		AF52ED880AE2F8F600A75C72 /* LTableSelState.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = LTableSelState.h; sourceTree = "<group>"; };
 		AF52EF1D0AE32EB200A75C72 /* 0bb21872.0 */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = 0bb21872.0; sourceTree = "<group>"; };
@@ -2823,6 +2840,8 @@
 		AFBE2AB60D2F30DB002132BE /* CWebDAVPrefsClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWebDAVPrefsClient.cpp; sourceTree = "<group>"; };
 		AFBE2AB80D2F34A4002132BE /* COptionsAccount.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = COptionsAccount.cp; path = ../Sources_Common/Application/Preferences/COptionsAccount.cp; sourceTree = SOURCE_ROOT; };
 		AFBE2AB90D2F34A4002132BE /* COptionsAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COptionsAccount.h; path = ../Sources_Common/Application/Preferences/COptionsAccount.h; sourceTree = SOURCE_ROOT; };
+		AFC64A28147C34A4001777F1 /* CEditAddressAdvancedDialog.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CEditAddressAdvancedDialog.cp; path = Sources/Application/Address_Book/CEditAddressAdvancedDialog.cp; sourceTree = "<group>"; };
+		AFC64A29147C34A5001777F1 /* CEditAddressAdvancedDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEditAddressAdvancedDialog.h; path = Sources/Application/Address_Book/CEditAddressAdvancedDialog.h; sourceTree = "<group>"; };
 		AFC798190CCADCAF00E62F0F /* CPasswordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPasswordManager.h; path = ../Sources_Common/Mail/Control/CPasswordManager.h; sourceTree = SOURCE_ROOT; };
 		AFC7981A0CCADCAF00E62F0F /* CPasswordManager.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CPasswordManager.cp; path = ../Sources_Common/Mail/Control/CPasswordManager.cp; sourceTree = SOURCE_ROOT; };
 		AFC79A4C0CCBEB4C00E62F0F /* CocoaSpeller.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaSpeller.xcodeproj; path = "../Plug-ins/CocoaSpeller/CocoaSpeller.xcodeproj"; sourceTree = SOURCE_ROOT; };
@@ -5951,6 +5970,14 @@
 			path = Timezones;
 			sourceTree = "<group>";
 		};
+		AF7C331114A3C2CC00C70C9D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF7C331514A3C2CC00C70C9D /* libPluginLibrary.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		AF82692D0C1B2C3500B18EED /* XMLLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -8359,6 +8386,8 @@
 				AFCDDE9A0AE176DD00E30447 /* CAddressTableAction.cp */,
 				AFCDDE9B0AE176DD00E30447 /* CEditAddressDialog.h */,
 				AFCDDE9C0AE176DD00E30447 /* CEditAddressDialog.cp */,
+				AFC64A29147C34A5001777F1 /* CEditAddressAdvancedDialog.h */,
+				AFC64A28147C34A4001777F1 /* CEditAddressAdvancedDialog.cp */,
 				AFCDDE9D0AE176DD00E30447 /* CGroupTable.h */,
 				AFCDDE9E0AE176DD00E30447 /* CGroupTable.cp */,
 				AFCDDE9F0AE176DD00E30447 /* CGroupTableAction.h */,
@@ -8368,6 +8397,18 @@
 				AFCDDEA30AE176DD00E30447 /* CAddressView.h */,
 				AFCDDEA40AE176DD00E30447 /* CAddressView.cp */,
 				AFCDDEA50AE176DD00E30447 /* CAddressPreviewBase.h */,
+				AF6AA58F146044EA00035D50 /* CAddressPreviewAdvanced.h */,
+				AF6AA58E146044EA00035D50 /* CAddressPreviewAdvanced.cp */,
+				AF85A6C314642833009C526E /* CAddressFieldContainer.h */,
+				AF85A6C214642833009C526E /* CAddressFieldContainer.cp */,
+				AF3D68551478749600598FB3 /* CAddressFieldSubContainer.h */,
+				AF3D68541478749600598FB3 /* CAddressFieldSubContainer.cp */,
+				AF4F945A1462F0A30078DC56 /* CAddressFieldBase.h */,
+				AF4F94591462F0A30078DC56 /* CAddressFieldBase.cp */,
+				AF905F5A147834E20096CDFC /* CAddressFieldText.h */,
+				AF905F59147834E20096CDFC /* CAddressFieldText.cp */,
+				AF3D685214783A5700598FB3 /* CAddressFieldMultiLine.h */,
+				AF3D685114783A5700598FB3 /* CAddressFieldMultiLine.cp */,
 				AFCDDEA60AE176DD00E30447 /* CAddressPreview.h */,
 				AFCDDEA70AE176DD00E30447 /* CAddressPreview.cp */,
 				AFCDDEA80AE176DD00E30447 /* CAddressPanelBase.h */,
@@ -10268,6 +10309,10 @@
 					ProjectRef = AF419E9F0AEA750800E19592 /* PluginLibrary.xcodeproj */;
 				},
 				{
+					ProductGroup = AF7C331114A3C2CC00C70C9D /* Products */;
+					ProjectRef = AF419E9F0AEA750800E19592 /* PluginLibrary.xcodeproj */;
+				},
+				{
 					ProductGroup = AF419EA30AEA750800E19592 /* Products */;
 					ProjectRef = AF419EA20AEA750800E19592 /* QuickmailAdbkIO.xcodeproj */;
 				},
@@ -10399,6 +10444,13 @@
 			fileType = wrapper.cfbundle;
 			path = vCardAdbkIO.bundle;
 			remoteRef = AF419EE20AEA753C00E19592 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AF7C331514A3C2CC00C70C9D /* libPluginLibrary.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPluginLibrary.a;
+			remoteRef = AF7C331414A3C2CC00C70C9D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		AFC79A510CCBEB4C00E62F0F /* CocoaSpeller.bundle */ = {
@@ -11678,6 +11730,7 @@
 				EXECUTABLE_EXTENSION = app;
 				GCC_SHORT_ENUMS = NO;
 				INFOPLIST_FILE = Packaging/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
 				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = Mulberry;

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -236,7 +236,6 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				GENERATE_PKGINFO_FILE = NO;
-				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = ../Common/Info.plst;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
 				INFOPLIST_PREFIX_HEADER = "";

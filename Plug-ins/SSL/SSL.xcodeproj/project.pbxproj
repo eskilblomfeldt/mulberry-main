@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -257,10 +257,7 @@
 					"-multiply_defined",
 					warning,
 				);
-				PREBINDING = YES;
 				PRODUCT_NAME = SSL;
-				REZ_SCRIPT_TYPE = Roman;
-				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
 				STRIP_INSTALLED_PRODUCT = NO;
 				WRAPPER_EXTENSION = bundle;
 			};

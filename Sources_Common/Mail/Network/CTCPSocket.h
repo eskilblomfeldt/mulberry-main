@@ -151,7 +151,7 @@ public:
 	virtual void TCPSetAsyncHandle(HANDLE hdl)							// Set HANDLE associated with async operation
 		{ mAsyncHandle = hdl; }
 	virtual void TCPAsyncDone(long err);								// Async operation complete
-	virtual void TCPAsyncBlock(unsigned long secs = 0xFFFFFFFF);		// Block until async op completes or user cancels or timeout
+	virtual void TCPAsyncBlock(unsigned long secs = -1);		// Block until async op completes or user cancels or timeout
 #endif
 
 	// Connections
@@ -218,9 +218,12 @@ protected:
 
 			void TCPCreateSocket();
 
+    virtual bool _ReceiveData(char* buf, long* len);			// Receive some data directly
+	virtual long _SendData(char* buf, long len);				// Send data
+
 			// Yielding
 			void TCPYield();
-			void TCPSelectYield(bool read, unsigned long secs = 0xFFFFFFFF);
+			void TCPSelectYield(bool read, unsigned long secs = -1);
 
 			// Errors
 			void TCPForceAbort();
