@@ -49,7 +49,7 @@ RANLIB=
 MKDIR=$(PERL) util/mkdir-p.pl
 MKLIB=lib /nologo
 MLFLAGS= /nologo /subsystem:console /opt:ref /debug /dll
-ASM=ml /nologo /Cp /coff /c /Cx /Zi
+ASM=nasm -f win32
 
 # FIPS validated module and support file locations
 
@@ -1427,10 +1427,10 @@ $(OBJ_D)\fips_ers.obj: $(SRC_D)\crypto\fips_ers.c
 	$(CC) /Fo$(OBJ_D)\fips_ers.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\fips_ers.c
 
 $(TMP_D)\x86cpuid.asm: crypto\x86cpuid.pl
-	$(PERL) crypto\x86cpuid.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\x86cpuid.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\x86cpuid.obj: $(TMP_D)\x86cpuid.asm
-	$(ASM) /Fo$@ $(TMP_D)\x86cpuid.asm
+	$(ASM) -o $@ $(TMP_D)\x86cpuid.asm
 
 $(OBJ_D)\md4_dgst.obj: $(SRC_D)\crypto\md4\md4_dgst.c
 	$(CC) /Fo$(OBJ_D)\md4_dgst.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\md4\md4_dgst.c
@@ -1445,10 +1445,10 @@ $(OBJ_D)\md5_one.obj: $(SRC_D)\crypto\md5\md5_one.c
 	$(CC) /Fo$(OBJ_D)\md5_one.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\md5\md5_one.c
 
 $(TMP_D)\md5-586.asm: crypto\md5\asm\md5-586.pl
-	$(PERL) crypto\md5\asm\md5-586.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\md5\asm\md5-586.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\md5-586.obj: $(TMP_D)\md5-586.asm
-	$(ASM) /Fo$@ $(TMP_D)\md5-586.asm
+	$(ASM) -o $@ $(TMP_D)\md5-586.asm
 
 $(OBJ_D)\sha_dgst.obj: $(SRC_D)\crypto\sha\sha_dgst.c
 	$(CC) /Fo$(OBJ_D)\sha_dgst.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\sha\sha_dgst.c
@@ -1469,22 +1469,22 @@ $(OBJ_D)\sha512.obj: $(SRC_D)\crypto\sha\sha512.c
 	$(CC) /Fo$(OBJ_D)\sha512.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\sha\sha512.c
 
 $(TMP_D)\sha1-586.asm: crypto\sha\asm\sha1-586.pl
-	$(PERL) crypto\sha\asm\sha1-586.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\sha\asm\sha1-586.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\sha1-586.obj: $(TMP_D)\sha1-586.asm
-	$(ASM) /Fo$@ $(TMP_D)\sha1-586.asm
+	$(ASM) -o $@ $(TMP_D)\sha1-586.asm
 
 $(TMP_D)\sha256-586.asm: crypto\sha\asm\sha256-586.pl
-	$(PERL) crypto\sha\asm\sha256-586.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\sha\asm\sha256-586.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\sha256-586.obj: $(TMP_D)\sha256-586.asm
-	$(ASM) /Fo$@ $(TMP_D)\sha256-586.asm
+	$(ASM) -o $@ $(TMP_D)\sha256-586.asm
 
 $(TMP_D)\sha512-586.asm: crypto\sha\asm\sha512-586.pl
-	$(PERL) crypto\sha\asm\sha512-586.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\sha\asm\sha512-586.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\sha512-586.obj: $(TMP_D)\sha512-586.asm
-	$(ASM) /Fo$@ $(TMP_D)\sha512-586.asm
+	$(ASM) -o $@ $(TMP_D)\sha512-586.asm
 
 $(OBJ_D)\mdc2dgst.obj: $(SRC_D)\crypto\mdc2\mdc2dgst.c
 	$(CC) /Fo$(OBJ_D)\mdc2dgst.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\mdc2\mdc2dgst.c
@@ -1517,10 +1517,10 @@ $(OBJ_D)\rmd_one.obj: $(SRC_D)\crypto\ripemd\rmd_one.c
 	$(CC) /Fo$(OBJ_D)\rmd_one.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\ripemd\rmd_one.c
 
 $(TMP_D)\rmd-586.asm: crypto\ripemd\asm\rmd-586.pl
-	$(PERL) crypto\ripemd\asm\rmd-586.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\ripemd\asm\rmd-586.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\rmd-586.obj: $(TMP_D)\rmd-586.asm
-	$(ASM) /Fo$@ $(TMP_D)\rmd-586.asm
+	$(ASM) -o $@ $(TMP_D)\rmd-586.asm
 
 $(OBJ_D)\set_key.obj: $(SRC_D)\crypto\des\set_key.c
 	$(CC) /Fo$(OBJ_D)\set_key.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\des\set_key.c
@@ -1571,16 +1571,16 @@ $(OBJ_D)\rand_key.obj: $(SRC_D)\crypto\des\rand_key.c
 	$(CC) /Fo$(OBJ_D)\rand_key.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\des\rand_key.c
 
 $(TMP_D)\des-586.asm: crypto\des\asm\des-586.pl
-	$(PERL) crypto\des\asm\des-586.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\des\asm\des-586.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\des-586.obj: $(TMP_D)\des-586.asm
-	$(ASM) /Fo$@ $(TMP_D)\des-586.asm
+	$(ASM) -o $@ $(TMP_D)\des-586.asm
 
 $(TMP_D)\crypt586.asm: crypto\des\asm\crypt586.pl
-	$(PERL) crypto\des\asm\crypt586.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\des\asm\crypt586.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\crypt586.obj: $(TMP_D)\crypt586.asm
-	$(ASM) /Fo$@ $(TMP_D)\crypt586.asm
+	$(ASM) -o $@ $(TMP_D)\crypt586.asm
 
 $(OBJ_D)\fcrypt.obj: $(SRC_D)\crypto\des\fcrypt.c
 	$(CC) /Fo$(OBJ_D)\fcrypt.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\des\fcrypt.c
@@ -1622,10 +1622,10 @@ $(OBJ_D)\rc2ofb64.obj: $(SRC_D)\crypto\rc2\rc2ofb64.c
 	$(CC) /Fo$(OBJ_D)\rc2ofb64.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\rc2\rc2ofb64.c
 
 $(TMP_D)\rc4-586.asm: crypto\rc4\asm\rc4-586.pl
-	$(PERL) crypto\rc4\asm\rc4-586.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\rc4\asm\rc4-586.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\rc4-586.obj: $(TMP_D)\rc4-586.asm
-	$(ASM) /Fo$@ $(TMP_D)\rc4-586.asm
+	$(ASM) -o $@ $(TMP_D)\rc4-586.asm
 
 $(OBJ_D)\rc4_utl.obj: $(SRC_D)\crypto\rc4\rc4_utl.c
 	$(CC) /Fo$(OBJ_D)\rc4_utl.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\rc4\rc4_utl.c
@@ -1652,10 +1652,10 @@ $(OBJ_D)\bf_ecb.obj: $(SRC_D)\crypto\bf\bf_ecb.c
 	$(CC) /Fo$(OBJ_D)\bf_ecb.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\bf\bf_ecb.c
 
 $(TMP_D)\bf-586.asm: crypto\bf\asm\bf-586.pl
-	$(PERL) crypto\bf\asm\bf-586.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\bf\asm\bf-586.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\bf-586.obj: $(TMP_D)\bf-586.asm
-	$(ASM) /Fo$@ $(TMP_D)\bf-586.asm
+	$(ASM) -o $@ $(TMP_D)\bf-586.asm
 
 $(OBJ_D)\bf_cfb64.obj: $(SRC_D)\crypto\bf\bf_cfb64.c
 	$(CC) /Fo$(OBJ_D)\bf_cfb64.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\bf\bf_cfb64.c
@@ -1670,10 +1670,10 @@ $(OBJ_D)\c_ecb.obj: $(SRC_D)\crypto\cast\c_ecb.c
 	$(CC) /Fo$(OBJ_D)\c_ecb.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\cast\c_ecb.c
 
 $(TMP_D)\cast-586.asm: crypto\cast\asm\cast-586.pl
-	$(PERL) crypto\cast\asm\cast-586.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\cast\asm\cast-586.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\cast-586.obj: $(TMP_D)\cast-586.asm
-	$(ASM) /Fo$@ $(TMP_D)\cast-586.asm
+	$(ASM) -o $@ $(TMP_D)\cast-586.asm
 
 $(OBJ_D)\c_cfb64.obj: $(SRC_D)\crypto\cast\c_cfb64.c
 	$(CC) /Fo$(OBJ_D)\c_cfb64.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\cast\c_cfb64.c
@@ -1703,22 +1703,22 @@ $(OBJ_D)\aes_wrap.obj: $(SRC_D)\crypto\aes\aes_wrap.c
 	$(CC) /Fo$(OBJ_D)\aes_wrap.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\aes\aes_wrap.c
 
 $(TMP_D)\aes-586.asm: crypto\aes\asm\aes-586.pl
-	$(PERL) crypto\aes\asm\aes-586.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\aes\asm\aes-586.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\aes-586.obj: $(TMP_D)\aes-586.asm
-	$(ASM) /Fo$@ $(TMP_D)\aes-586.asm
+	$(ASM) -o $@ $(TMP_D)\aes-586.asm
 
 $(TMP_D)\vpaes-x86.asm: crypto\aes\asm\vpaes-x86.pl
-	$(PERL) crypto\aes\asm\vpaes-x86.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\aes\asm\vpaes-x86.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\vpaes-x86.obj: $(TMP_D)\vpaes-x86.asm
-	$(ASM) /Fo$@ $(TMP_D)\vpaes-x86.asm
+	$(ASM) -o $@ $(TMP_D)\vpaes-x86.asm
 
 $(TMP_D)\aesni-x86.asm: crypto\aes\asm\aesni-x86.pl
-	$(PERL) crypto\aes\asm\aesni-x86.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\aes\asm\aesni-x86.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\aesni-x86.obj: $(TMP_D)\aesni-x86.asm
-	$(ASM) /Fo$@ $(TMP_D)\aesni-x86.asm
+	$(ASM) -o $@ $(TMP_D)\aesni-x86.asm
 
 $(OBJ_D)\cmll_ecb.obj: $(SRC_D)\crypto\camellia\cmll_ecb.c
 	$(CC) /Fo$(OBJ_D)\cmll_ecb.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\camellia\cmll_ecb.c
@@ -1736,10 +1736,10 @@ $(OBJ_D)\cmll_utl.obj: $(SRC_D)\crypto\camellia\cmll_utl.c
 	$(CC) /Fo$(OBJ_D)\cmll_utl.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\camellia\cmll_utl.c
 
 $(TMP_D)\cmll-x86.asm: crypto\camellia\asm\cmll-x86.pl
-	$(PERL) crypto\camellia\asm\cmll-x86.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\camellia\asm\cmll-x86.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\cmll-x86.obj: $(TMP_D)\cmll-x86.asm
-	$(ASM) /Fo$@ $(TMP_D)\cmll-x86.asm
+	$(ASM) -o $@ $(TMP_D)\cmll-x86.asm
 
 $(OBJ_D)\seed.obj: $(SRC_D)\crypto\seed\seed.c
 	$(CC) /Fo$(OBJ_D)\seed.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\seed\seed.c
@@ -1781,10 +1781,10 @@ $(OBJ_D)\xts128.obj: $(SRC_D)\crypto\modes\xts128.c
 	$(CC) /Fo$(OBJ_D)\xts128.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\modes\xts128.c
 
 $(TMP_D)\ghash-x86.asm: crypto\modes\asm\ghash-x86.pl
-	$(PERL) crypto\modes\asm\ghash-x86.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\modes\asm\ghash-x86.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\ghash-x86.obj: $(TMP_D)\ghash-x86.asm
-	$(ASM) /Fo$@ $(TMP_D)\ghash-x86.asm
+	$(ASM) -o $@ $(TMP_D)\ghash-x86.asm
 
 $(OBJ_D)\bn_add.obj: $(SRC_D)\crypto\bn\bn_add.c
 	$(CC) /Fo$(OBJ_D)\bn_add.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\bn\bn_add.c
@@ -1841,28 +1841,28 @@ $(OBJ_D)\bn_sqr.obj: $(SRC_D)\crypto\bn\bn_sqr.c
 	$(CC) /Fo$(OBJ_D)\bn_sqr.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\bn\bn_sqr.c
 
 $(TMP_D)\bn-586.asm: crypto\bn\asm\bn-586.pl
-	$(PERL) crypto\bn\asm\bn-586.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\bn\asm\bn-586.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\bn-586.obj: $(TMP_D)\bn-586.asm
-	$(ASM) /Fo$@ $(TMP_D)\bn-586.asm
+	$(ASM) -o $@ $(TMP_D)\bn-586.asm
 
 $(TMP_D)\co-586.asm: crypto\bn\asm\co-586.pl
-	$(PERL) crypto\bn\asm\co-586.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\bn\asm\co-586.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\co-586.obj: $(TMP_D)\co-586.asm
-	$(ASM) /Fo$@ $(TMP_D)\co-586.asm
+	$(ASM) -o $@ $(TMP_D)\co-586.asm
 
 $(TMP_D)\x86-mont.asm: crypto\bn\asm\x86-mont.pl
-	$(PERL) crypto\bn\asm\x86-mont.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\bn\asm\x86-mont.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\x86-mont.obj: $(TMP_D)\x86-mont.asm
-	$(ASM) /Fo$@ $(TMP_D)\x86-mont.asm
+	$(ASM) -o $@ $(TMP_D)\x86-mont.asm
 
 $(TMP_D)\x86-gf2m.asm: crypto\bn\asm\x86-gf2m.pl
-	$(PERL) crypto\bn\asm\x86-gf2m.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\bn\asm\x86-gf2m.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\x86-gf2m.obj: $(TMP_D)\x86-gf2m.asm
-	$(ASM) /Fo$@ $(TMP_D)\x86-gf2m.asm
+	$(ASM) -o $@ $(TMP_D)\x86-gf2m.asm
 
 $(OBJ_D)\bn_recp.obj: $(SRC_D)\crypto\bn\bn_recp.c
 	$(CC) /Fo$(OBJ_D)\bn_recp.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\bn\bn_recp.c
@@ -3173,10 +3173,10 @@ $(OBJ_D)\wp_block.obj: $(SRC_D)\crypto\whrlpool\wp_block.c
 	$(CC) /Fo$(OBJ_D)\wp_block.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\whrlpool\wp_block.c
 
 $(TMP_D)\wp-mmx.asm: crypto\whrlpool\asm\wp-mmx.pl
-	$(PERL) crypto\whrlpool\asm\wp-mmx.pl win32 $(CFLAG) >$@
+	$(PERL) crypto\whrlpool\asm\wp-mmx.pl win32n $(CFLAG) >$@
 
 $(OBJ_D)\wp-mmx.obj: $(TMP_D)\wp-mmx.asm
-	$(ASM) /Fo$@ $(TMP_D)\wp-mmx.asm
+	$(ASM) -o $@ $(TMP_D)\wp-mmx.asm
 
 $(OBJ_D)\ts_err.obj: $(SRC_D)\crypto\ts\ts_err.c
 	$(CC) /Fo$(OBJ_D)\ts_err.obj  $(SHLIB_CFLAGS) -DOPENSSL_BUILD_SHLIBCRYPTO -c $(SRC_D)\crypto\ts\ts_err.c
